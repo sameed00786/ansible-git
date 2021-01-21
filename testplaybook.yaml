@@ -3,6 +3,16 @@
   remote_user: adil
   become: yes
   tasks:
-          - name: "Install httpd server"
-            service: name=httpd state=started enabled=yes
-
+          - name: "Install multiple packages with loop"
+            yum: name="{{item}}" state=present
+            with_items:
+                    - vsftpd
+                    - httpd
+                    - tree
+                    - mutt
+                      
+	  - name: "start services"
+	    service: name="{{item}}" state=started enabled=yes
+            with_items:
+                    - vsftpd
+                    - httpd
