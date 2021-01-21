@@ -1,0 +1,8 @@
+---
+- hosts: sameed
+  remote_user: adil
+  become: yes
+  tasks:
+          - name: "Install httpd server"
+            service: name=httpd state=started enabled=yes
+
