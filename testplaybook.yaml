@@ -11,7 +11,7 @@
                     - tree
                     - mutt
                       
-	  - name: "start services"
+	  - name: start services
 	    service: name="{{item}}" state=started enabled=yes
             with_items:
                     - vsftpd
