@@ -4,9 +4,4 @@
   become: yes
   tasks:
           - name: "Install multiple packages with loop"
-            yum: name="{{item}}" state=present
-            with_items:
-                    - vsftpd
-                    - httpd
-                    - tree
-                    - mutt
+            yum: name=httpd state=present
